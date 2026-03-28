@@ -1,1 +1,788 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتقان العزل | الموسوعة الشاملة لعزل الأسطح والخزانات</title>
+    <meta name="description" content="شركة إتقان العزل - الخبراء في عزل الأسطح بالخزانات بمكة وجدة والطائف. جميع أنواع العزل: فوم، بيتومين، إيبوكسي، بولي يوريا. ضمان حقيقي.">
+    
+    <!-- خطوط جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <!-- أيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- المتغيرات والتصميم العام --- */
+        :root {
+            --primary: #002b5c; /* أزرق ملكي داكن */
+            --secondary: #007bff; /* أزرق ساطع */
+            --accent: #ffb700; /* أصفر ذهبي */
+            --dark: #1a1a1a;
+            --light: #f4f7f6;
+            --text: #333;
+            --glass: rgba(255, 255, 255, 0.95);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; }
+        ul { list-style: none; }
+
+        /* --- شريط التنقل --- */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+        
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo i { color: var(--accent); font-size: 2rem; }
+
+        .nav-menu { display: flex; gap: 25px; }
+        .nav-link {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1rem;
+            transition: 0.3s;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .header-contact {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .header-contact:hover { background: var(--accent); color: var(--primary); transform: translateY(-2px); }
+
+        /* --- القسم الرئيسي (Hero) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 43, 92, 0.8), rgba(0, 43, 92, 0.7)), url('https://images.unsplash.com/photo-1628135899447-c7880f578006?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-content { max-width: 900px; z-index: 2; animation: fadeInUp 1s ease-out; }
+        
+        .hero-badge {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        
+        .btn {
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary { background: var(--accent); color: var(--primary); box-shadow: 0 10px 20px rgba(255, 183, 0, 0.4); }
+        .btn-outline { background: transparent; border: 2px solid #fff; color: #fff; }
+        .btn-wa { background: #25D366; color: #fff; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); }
+        
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+        /* --- قسم أنواع العزل (الموسوعة) --- */
+        .types-section { padding: 100px 0; background: #fff; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 3rem; color: var(--primary); margin-bottom: 15px; font-weight: 900; }
+        .section-header .line { width: 100px; height: 5px; background: var(--accent); margin: 0 auto; border-radius: 5px; }
+        
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .type-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.4s;
+            border: 1px solid #eee;
+            position: relative;
+        }
+        
+        .type-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        
+        .type-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .type-header i { font-size: 2rem; color: var(--accent); }
+        .type-header h3 { font-size: 1.5rem; }
+        
+        .type-body { padding: 30px; }
+        .type-body p { color: #666; margin-bottom: 20px; font-size: 1rem; }
+        
+        .type-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #444;
+            font-weight: 600;
+        }
+        .type-features i { color: var(--secondary); font-size: 0.8rem; }
+
+        /* --- قسم الخدمات التفصيلية --- */
+        .services-section { padding: 100px 0; background: var(--light); }
+        
+        .services-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-item:hover { border-bottom-color: var(--accent); transform: translateY(-5px); }
+        
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(0, 123, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            transition: 0.3s;
+        }
+        .service-item:hover .service-icon { background: var(--secondary); color: #fff; transform: rotateY(180deg); }
+        
+        .service-item h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--primary); }
+        .service-item p { color: #777; font-size: 0.95rem; margin-bottom: 20px; }
+
+        /* --- قسم المواصفات الفنية --- */
+        .specs-section {
+            background: var(--primary);
+            color: #fff;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .spec-box i { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
+        .spec-box h4 { font-size: 1.5rem; margin-bottom: 10px; }
+        .spec-box p { opacity: 0.8; font-size: 0.9rem; }
+
+        /* --- نموذج الحجز المتقدم --- */
+        .booking-section { padding: 100px 0; background: #fff; }
+        
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            background: #fff;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .booking-info {
+            background: var(--dark);
+            color: #fff;
+            padding: 60px;
+            position: relative;
+        }
+        
+        .booking-info::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.1;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        .info-row i {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .info-text h4 { font-size: 1.2rem; margin-bottom: 5px; }
+        .info-text p { opacity: 0.7; font-size: 0.9rem; }
+
+        .booking-form { padding: 60px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--primary); }
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: 0.3s;
+            background: #f9f9f9;
+        }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+            border-color: var(--secondary);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .submit-btn:hover { background: var(--accent); color: var(--primary); }
+
+        /* --- الفوتر --- */
+        footer {
+            background: #111;
+            color: #aaa;
+            padding: 80px 0 30px;
+            border-top: 5px solid var(--accent);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 { color: #fff; font-size: 1.5rem; margin-bottom: 25px; position: relative; padding-bottom: 15px; }
+        .footer-col h3::after { content: ''; position: absolute; bottom: 0; right: 0; width: 50px; height: 3px; background: var(--accent); }
+        
+        .footer-links li { margin-bottom: 15px; }
+        .footer-links a { color: #aaa; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
+        .footer-links a:hover { color: var(--accent); padding-right: 10px; }
+        
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a {
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: 0.3s;
+        }
+        .social-links a:hover { background: var(--accent); color: var(--primary); transform: translateY(-5px); }
+
+        /* --- زر واتساب العائم --- */
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25D366;
+            color: #fff;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+            z-index: 9999;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- التجاوب --- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3rem; }
+            .booking-container { grid-template-columns: 1fr; }
+            .specs-grid { grid-template-columns: 1fr 1fr; }
+            .nav-menu { display: none; } /* يمكن إضافة قائمة هامبرغر هنا */
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .specs-grid { grid-template-columns: 1fr; }
+            .booking-info, .booking-form { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                إتقان العزل
+            </div>
+            <nav class="nav-menu">
+                <a href="#types" class="nav-link">أنواع العزل</a>
+                <a href="#services" class="nav-link">خدماتنا</a>
+                <a href="#specs" class="nav-link">المواصفات</a>
+                <a href="#booking" class="nav-link">احجز الآن</a>
+            </nav>
+            <a href="tel:0550258580" class="header-contact">
+                <i class="fas fa-phone-alt"></i> 0550258580
+            </a>
+        </div>
+    </header>
+
+    <!-- الواجهة الرئيسية -->
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="hero-badge">الرقم 1 في المملكة الغربية</span>
+            <h1>حلول عزل احترافية <br> <span style="color: var(--accent);">للمنازل والشركات</span></h1>
+            <p>نقدم أحدث تقنيات العزل الحراري والمائي في مكة، جدة، والطائف. نحمي استثماراتك ونوفر فاتورة الكهرباء بعزل الفوم والمواد المتطورة.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/966550258580" class="btn btn-wa">
+                    <i class="fab fa-whatsapp"></i> استشارة مجانية
+                </a>
+                <a href="#booking" class="btn btn-outline">
+                    <i class="fas fa-calendar-alt"></i> طلب معاينة
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم أنواع العزل (الموسوعة) -->
+    <section id="types" class="types-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>أنواع العزل المتوفرة</h2>
+                <div class="line"></div>
+                <p style="margin-top: 20px; color: #666; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    نمتلك مخزوناً من جميع مواد العزل العالمية لنقدم الحل الأنسب لكل حالة، سواء كنت تبحث عن العزل الحراري، المائي، أو الصوتي.
+                </p>
+            </div>
+
+            <div class="types-grid">
+                <!-- نوع 1 -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-spray-can"></i>
+                        <h3>عزل الفوم (البولي يوريثان)</h3>
+                    </div>
+                    <div class="type-body">
+                        <p>الخيار الأول للأسطح الخرسانية. يتم رشه سائلاً ليتحول إلى رغوة صلبة تغطي كل الشقوق.</p>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> عزل حراري بنسبة 98%</li>
+                            <li><i class="fas fa-check"></i> مانع لتسرب المياه تماماً</li>
+                            <li><i class="fas fa-check"></i> خفيف الوزن لا يثقل المبنى</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- نوع 2 -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>عزل البيتومين (المعدني)</h3>
+                    </div>
+                    <div class="type-body">
+                        <p>ألواح البيتومين SBS المعززة بالألياف الزجاجية، مثالية للأسطح المعرضة للأمطار الغزيرة.</p>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> متانة عالية ضد الأشعة فوق البنفسجية</li>
+                            <li><i class="fas fa-check"></i> مرونة عالية تمنع التشقق</li>
+                            <li><i class="fas fa-check"></i> عزل مائي قوي جداً</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- نوع 3 -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-fill-drip"></i>
+                        <h3>عزل الإيبوكسي والخزانات</h3>
+                    </div>
+                    <div class="type-body">
+                        <p>مادة سائلة عالية الكثافة تستخدم لعزل وتنظيف خزانات المياه لضمان نقاء المياه.</p>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> مواد معتمدة صحياً (Food Grade)</li>
+                            <li><i class="fas fa-check"></i> يمنع نمو الطحالب والبكتيريا</li>
+                            <li><i class="fas fa-check"></i> سطح أملس وسهل التنظيف</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- نوع 4 -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-shield-virus"></i>
+                        <h3>عزل البولي يوريا</h3>
+                    </div>
+                    <div class="type-body">
+                        <p>أحدث تقنيات العزل في العالم، يجف في ثوانٍ ويشكل طبقة مطاطية قوية جداً.</p>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> مقاومة كيميائية عالية</li>
+                            <li><i class="fas fa-check"></i> يجف فوراً (Fast Curing)</li>
+                            <li><i class="fas fa-check"></i> مثالي للمسابح والأسطح المعدنية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>خدماتنا الشاملة</h2>
+                <div class="line"></div>
+            </div>
+            
+            <div class="services-wrapper">
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <h3>عزل أسطح المنازل</h3>
+                    <p>حماية شاملة لأسطح الفلل والقصور من حرارة الشمس الحارقة في الصيف.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-water"></i></div>
+                    <h3>عزل وتنظيف الخزانات</h3>
+                    <p>غسيل وتعقيم وعزل الخزانات الأرضية والعلوية بأعلى معايير الجودة.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-swimming-pool"></i></div>
+                    <h3>عزل المسابح</h3>
+                    <p>عزل مائي قوي للمسابح يمنع التسرب ويحافظ على منسوب المياه.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>عزل البدروم (القبو)</h3>
+                    <p>عزل الجدران الاستنادية والأساسات لمنع الرطوبة الأرضية والعفن.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-industry"></i></div>
+                    <h3>عزل المصانع والمستودعات</h3>
+                    <p>حلول عزل صناعية للمساحات الكبيرة بأسعار تنافسية.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3>صيانة التسربات</h3>
+                    <p>كشف ومعالجة تسربات المياه المخفية في الجدران والأسقف.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- المواصفات الفنية -->
+    <section id="specs" class="specs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: #fff;">لماذا تختار إتقان العزل؟</h2>
+                <div class="line" style="background: #fff;"></div>
+            </div>
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <i class="fas fa-microscope"></i>
+                    <h4>مواد معتمدة</h4>
+                    <p>نستخدم مواد من شركات عالمية (Sika, BASF) معتمدة من البلدية.</p>
+                </div>
+                <div class="spec-box">
+                    <i class="fas fa-users-cog"></i>
+                    <h4>فريق محترف</h4>
+                    <p>عمالة مدربة على أعلى مستوى وفنيين ذوي خبرة طويلة.</p>
+                </div>
+                <div class="spec-box">
+                    <i class="fas fa-file-contract"></i>
+                    <h4>ضمان مكتوب</h4>
+                    <p>نقدم عقد ضمان رسمي يغطي جميع أعمال العزل المنفذة.</p>
+                </div>
+                <div class="spec-box">
+                    <i class="fas fa-clock"></i>
+                    <h4>التزام بالمواعيد</h4>
+                    <p>نحترم وقت العميل ونلتزم بإنهاء العمل في الوقت المحدد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج الحجز -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-info">
+                    <h3 style="font-size: 2rem; margin-bottom: 30px;">تواصل معنا الآن</h3>
+                    <p style="margin-bottom: 40px; opacity: 0.8;">نحن متاحون للرد على استفساراتكم وتنفيذ مشاريعكم في جميع أوقات الأسبوع.</p>
+                    
+                    <div class="info-row">
+                        <i class="fas fa-phone-volume"></i>
+                        <div class="info-text">
+                            <h4>اتصال مباشر</h4>
+                            <p>0550258580</p>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <i class="fab fa-whatsapp"></i>
+                        <div class="info-text">
+                            <h4>واتساب</h4>
+                            <p>0550258580</p>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <div class="info-text">
+                            <h4>مناطق الخدمة</h4>
+                            <p>مكة المكرمة - جدة - الطائف</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 50px;">
+                        <h4 style="margin-bottom: 20px;">تابعنا على</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form">
+                    <h3 style="color: var(--primary); margin-bottom: 10px; font-size: 2rem;">احجز معاينة مجانية</h3>
+                    <p style="margin-bottom: 30px; color: #666;">املأ البيانات وسيتم تحويلك مباشرة إلى واتساب لإتمام الطلب.</p>
+                    
+                    <form action="https://wa.me/966550258580" method="get" target="_blank">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label>الاسم الكريم</label>
+                                <input type="text" placeholder="مثال: محمد أحمد" required>
+                            </div>
+                            <div class="input-group">
+                                <label>رقم الجوال</label>
+                                <input type="tel" placeholder="05xxxxxxxx" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label>المدينة</label>
+                                <select>
+                                    <option>مكة المكرمة</option>
+                                    <option>جدة</option>
+                                    <option>الطائف</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>نوع العقار</label>
+                                <select>
+                                    <option>منزل سكني / فيلا</option>
+                                    <option>مبنى تجاري</option>
+                                    <option>مستودع / مصنع</option>
+                                    <option>أخرى</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>نوع الخدمة المطلوبة</label>
+                            <select>
+                                <option>عزل أسطح (فوم)</option>
+                                <option>عزل خزانات</option>
+                                <option>عزل مسابح</option>
+                                <option>عزل بدروم</option>
+                                <option>عزل بيتومين</option>
+                                <option>استشارة عامة</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>تفاصيل إضافية (اختياري)</label>
+                            <textarea rows="4" placeholder="اكتب مساحة السطح التقريبية أو أي ملاحظات..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>إتقان العزل</h3>
+                    <p style="line-height: 1.8; margin-bottom: 20px;">
+                        الشركة الرائدة في مجال العزل الحراري والمائي بالمملكة العربية السعودية. نلتزم بالجودة والشفافية في جميع مشاريعنا.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-left"></i> الرئيسية</a></li>
+                        <li><a href="#types"><i class="fas fa-angle-left"></i> أنواع العزل</a></li>
+                        <li><a href="#services"><i class="fas fa-angle-left"></i> خدماتنا</a></li>
+                        <li><a href="#booking"><i class="fas fa-angle-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>خدمات العزل</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-left"></i> عزل أسطح بمكة</a></li>
+                        <li><a href="#"><i class="fas fa-angle-left"></i> عزل خزانات بجدة</a></li>
+                        <li><a href="#"><i class="fas fa-angle-left"></i> عزل فوم بالطائف</a></li>
+                        <li><a href="#"><i class="fas fa-angle-left"></i> عزل مسابح</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid #333; padding-top: 20px; color: #666;">
+                <p>جميع الحقوق محفوظة &copy; 2026 شركة إتقان العزل</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر واتساب العائم -->
+    <a href="https://wa.me/966550258580" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
